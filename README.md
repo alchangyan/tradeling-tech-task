@@ -1,1 +1,1 @@
-# tradeling_tech_task
+# tradeling-tech-task
