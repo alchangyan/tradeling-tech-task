@@ -1,4 +1,5 @@
 # tradeling-tech-task
+<<<<<<< HEAD
 
 ## Usage:
 > __run application__
@@ -24,3 +25,5 @@ yarn build / npm run build
 ## Implementation:
 
 I've used `App` component as a layout to avoid creating seperate component for this.
+=======
+>>>>>>> 58202fff76baa27d451ea6ccfeda531fde312cab
