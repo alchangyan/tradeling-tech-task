@@ -44,6 +44,21 @@
       "last 1 safari version"
     ]
   },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --ignore-path .gitignore --write",
+      "git add"
+    ],
+    "*.{css,less,styl,scss,sass,sss}": [
+      "stylelint --ignore-path .gitignore --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "devDependencies": {
     "@storybook/addon-actions": "6.1.17",
     "@storybook/addon-essentials": "6.1.17",
@@ -51,6 +66,10 @@
     "@storybook/addon-links": "6.1.17",
     "@storybook/node-logger": "6.1.17",
     "@storybook/preset-create-react-app": "3.1.5",
-    "@storybook/react": "6.1.17"
+    "@storybook/react": "6.1.17",
+    "@types/react-router-dom": "^5.1.7",
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1"
   }
 }

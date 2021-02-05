@@ -1,9 +1,14 @@
 import * as React from 'react';
+import Header from '../../components/Header';
 
-interface TMainProps {};
+interface TMainProps {}
 
 const Main: React.FC<TMainProps> = props => {
-  return <div className="main">Main</div>;
+  return (
+    <div className="main">
+      <Header />
+    </div>
+  );
 };
 
 export type { TMainProps };
