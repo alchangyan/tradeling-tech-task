@@ -31,5 +31,7 @@ yarn build / npm run build
 
 ### ___Environment configuration___:
 
-
+added storybook
+configured storybook for showing testing results
+added lint-staged and husky in combination with prettier
 I've used `App` component as a generic wrapper instead of creating separate layout component just because I have only two simlar pages in general.
