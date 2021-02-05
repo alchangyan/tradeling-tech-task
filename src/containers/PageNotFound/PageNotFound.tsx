@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-type TPageNotFoundProps = {};
+interface TPageNotFoundProps {};
 
-function PageNotFound(props: TPageNotFoundProps) {
-  return <div className="PageNotFound"></div>;
-}
+const PageNotFound: React.FC<TPageNotFoundProps> = props => {
+  return <div className="page-not-found">Page Not Found</div>;
+};
 
 export type { TPageNotFoundProps };
 export default PageNotFound;

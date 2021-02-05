@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-type TMainProps = {};
+interface TMainProps {};
 
-function Main(props: TMainProps) {
-  return <div className="main"></div>;
-}
+const Main: React.FC<TMainProps> = props => {
+  return <div className="main">Main</div>;
+};
 
 export type { TMainProps };
 export default Main;

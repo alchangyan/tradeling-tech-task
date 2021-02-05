@@ -1,0 +1,19 @@
+.header {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+
+  &__logo {
+    width: 45px;
+    height: 45px;
+    margin-right: 15px;
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &__subtitle {
+    color: gray;
+  }
+}
