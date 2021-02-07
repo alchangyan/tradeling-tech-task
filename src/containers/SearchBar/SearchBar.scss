@@ -1,0 +1,8 @@
+.search-bar {
+  margin-bottom: 30px;
+  display: flex;
+
+  & > .input {
+    margin-right: 16px;
+  }
+}

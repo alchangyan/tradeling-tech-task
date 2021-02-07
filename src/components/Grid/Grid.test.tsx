@@ -4,8 +4,8 @@ import Grid, { TGridProps } from './index';
 
 interface TGetComponentResult {
   wrapper: RenderResult;
-  container: HTMLElement,
-  comp: HTMLElement,
+  container: HTMLElement;
+  comp: HTMLElement;
 }
 
 let comp: HTMLElement;
@@ -15,14 +15,14 @@ let container: HTMLElement;
 
 const getComponent = (): TGetComponentResult => {
   wrapper = render(<Grid {...props} />);
-  ({container} = wrapper);
+  ({ container } = wrapper);
   comp = container.firstChild as HTMLElement;
 
   return {
     wrapper,
     container,
     comp,
-  }
+  };
 };
 
 beforeEach(cleanup);
@@ -35,8 +35,15 @@ describe('Grid', () => {
   });
 
   it('renders childs', () => {
-    props = {colCount: 3};
+    props = { colCount: 3 };
     getComponent();
     expect(comp.style.gridTemplateColumns).toEqual('auto auto auto');
+  });
+
+  it('ignores `colCount` property', () => {
+    const expectedResult = '1fr 2fr 1fr';
+    props = { pattern: expectedResult };
+    getComponent();
+    expect(comp.style.gridTemplateColumns).toEqual(expectedResult);
   });
 });

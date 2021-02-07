@@ -1,0 +1,8 @@
+export const SEARCH = 'SEARCH';
+export const SEARCH_SUCCESS = 'SEARCH_SUCCESS';
+export const SEARCH_FAILURE = 'SEARCH_FAILURE';
+
+export const IS_SEARCHBAR_ACTIVE = 'IS_SEARCHBAR_ACTIVE';
+
+export const SET_LOADING = 'SET_LOADING';
+export const UNSET_LOADING = 'UNSET_LOADING';

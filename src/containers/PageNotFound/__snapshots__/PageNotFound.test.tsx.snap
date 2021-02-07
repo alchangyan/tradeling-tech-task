@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageNotFound renders correctly 1`] = `
+<div
+  class="page-not-found"
+>
+  <div
+    class="header"
+  >
+    <img
+      alt="github logo"
+      class="header__logo"
+      src="/octacat.png"
+    />
+    <div
+      class="header__content"
+    >
+      <h3
+        class="header__title"
+      >
+        GitHub Searcher
+      </h3>
+      <div
+        class="header__subtitle"
+      >
+        Search users or repositories below
+      </div>
+    </div>
+  </div>
+  <div
+    class="page-not-found__background"
+  >
+    <div
+      class="emoji"
+    >
+      <div
+        class="emoji__eyes"
+      >
+        <div
+          class="emoji__eye"
+        />
+        <div
+          class="emoji__eye"
+        />
+      </div>
+      <div
+        class="emoji__mouth"
+      />
+    </div>
+  </div>
+  <div
+    class="page-not-found__404"
+  >
+    404
+  </div>
+  <h2
+    class="page-not-found__title"
+  >
+    Page Not Found...
+  </h2>
+  <h4
+    class="page-not-found__subtitle"
+  >
+    ...so, you still have a chance to make one!!!
+  </h4>
+  <button>
+    or just go to homepage
+  </button>
+</div>
+`;

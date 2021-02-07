@@ -1,0 +1,72 @@
+.page-not-found {
+  text-align: center;
+  color: #5c5a5a;
+
+  &__background {
+    display: inline-block;
+
+    & .emoji {
+      width: 300px;
+      height: 300px;
+      border: 20px solid #5c5a5a;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &__eyes {
+        margin-top: 70px;
+        height: 50px;
+        display: inline-flex;
+      }
+
+      &__eye {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        background-color: #5c5a5a;
+        border-radius: 50%;
+
+        &:first-of-type {
+          margin-right: 60px;
+        }
+      }
+
+      &__mouth {
+        width: 130px;
+        height: 130px;
+        border: 20px solid transparent;
+        border-right: 20px solid #5c5a5a;
+        border-top: 20px solid #5c5a5a;
+        border-radius: 50%;
+        transform: rotate(-45deg) translate(-22px, 22px);
+        position: relative;
+
+        &::after,
+        &::before {
+          content: '';
+          position: absolute;
+          border-radius: 50%;
+          width: 20px;
+          height: 20px;
+          background-color: #5c5a5a;
+        }
+
+        &::after {
+          top: 2px;
+          left: 2px;
+        }
+
+        &::before {
+          left: 108px;
+          top: 108px;
+        }
+      }
+    }
+  }
+
+  &__404 {
+    font-size: 140px;
+    font-weight: 900;
+  }
+}

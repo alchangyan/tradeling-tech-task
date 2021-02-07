@@ -1,1 +1,9 @@
-.main {}
+.floating-block {
+  transition: max-width 1s;
+  margin: 0 auto;
+  max-width: 100%;
+
+  &_active {
+    max-width: 506px;
+  }
+}

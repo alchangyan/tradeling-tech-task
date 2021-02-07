@@ -1,0 +1,6 @@
+@import '../../styles/mixins/form-element.scss';
+
+.input {
+  width: 100%;
+  @include input-styles();
+}

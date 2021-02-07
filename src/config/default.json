@@ -1,0 +1,13 @@
+{
+  "app": "tradeling-tech-task",
+  "gitApi": {
+    "search": {
+      "path": "/search",
+      "get": {
+        "repositories": "/repositories",
+        "users": "/users",
+        "issues": "/issues"
+      }
+    }
+  }
+}
