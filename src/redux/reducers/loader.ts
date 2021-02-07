@@ -1,10 +1,9 @@
 import { SET_LOADING, UNSET_LOADING } from '../actionTypes';
+import type { TLoader } from '../types';
 
-const INITIAL_STATE = {
+const INITIAL_STATE: TLoader = {
   isLoading: false,
 };
-
-type TLoader = typeof INITIAL_STATE;
 
 const searchResults = (state = INITIAL_STATE, action: any) => {
   switch (action.type) {
@@ -21,5 +20,4 @@ const searchResults = (state = INITIAL_STATE, action: any) => {
   }
 };
 
-export type { TLoader };
 export default searchResults;

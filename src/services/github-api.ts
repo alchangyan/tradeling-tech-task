@@ -1,4 +1,4 @@
-import { OctokitResponse } from '@octokit/types';
+import type { OctokitResponse } from '@octokit/types';
 import { request } from '@octokit/request';
 
 type TMethod = 'get' | 'post' | 'put' | 'delete';

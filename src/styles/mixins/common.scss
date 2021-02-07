@@ -1,12 +1,13 @@
 $primary-color: #565656;
 $secondary-color: #dcdcdc;
 $input-height: 50px;
+$border-radius: 2px;
 
 @mixin input-styles {
   outline: none;
   padding: 12px 16px;
   border: 1px solid $secondary-color;
-  border-radius: 2px;
+  border-radius: $border-radius;
   font-size: 16px;
   color: $primary-color;
   box-sizing: border-box;

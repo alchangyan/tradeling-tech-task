@@ -2,8 +2,10 @@ import * as React from 'react';
 import classnames from 'classnames';
 import { useSelector } from 'react-redux';
 
-import type { TStore } from '../../redux/store';
+import type { TUser, TRepository, TStore } from '../../redux/types';
 import Header from '../../components/Header';
+import Grid from '../../components/Grid';
+import Card from '../../components/Card';
 import SearchBar from '../SearchBar';
 
 import './Main.scss';
@@ -11,19 +13,26 @@ import './Main.scss';
 interface TMainProps {}
 
 const Main: React.FC<TMainProps> = props => {
-  const { isSearchbarActive } = useSelector((state: TStore) => state.search);
+  const { isSearchbarActive, results } = useSelector(
+    (state: TStore) => state.search,
+  );
 
   return (
     <div className="main">
       <div
         className={classnames({
           'floating-block': true,
-          'floating-block_active': isSearchbarActive,
+          'floating-block_active': !isSearchbarActive,
         })}
       >
         <Header />
         <SearchBar />
       </div>
+      <Grid colCount={3} colGap={20} rowGap={20}>
+        {results.map((item: TRepository | TUser) => (
+          <Card key={item.id} data={item} />
+        ))}
+      </Grid>
     </div>
   );
 };

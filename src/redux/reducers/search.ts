@@ -4,29 +4,61 @@ import {
   SEARCH_FAILURE,
   IS_SEARCHBAR_ACTIVE,
 } from '../actionTypes';
-import { Action } from 'redux';
+import type { TSearchAction, TSearch } from '../types';
 
-const INITIAL_STATE = {
-  isSearchbarActive: true,
+const INITIAL_STATE: TSearch = {
+  isSearchbarActive: false,
+  queries: [],
   data: [],
+  results: [],
   err: null,
 };
 
-type TSearch = typeof INITIAL_STATE;
-
-// @ts-ignore
-const searchResults = (state = INITIAL_STATE, { type, payload, err }) => {
+const searchResults = (
+  state = INITIAL_STATE,
+  { type, payload, err }: TSearchAction,
+) => {
   switch (type) {
+    case 'persist/REHYDRATE':
+      const persistedState = payload && payload.search ? payload.search : state;
+
+      return {
+        ...persistedState,
+        query: '',
+        err: null,
+        results: [],
+        isSearchbarActive: false,
+      };
     case SEARCH:
       return {
         ...state,
         err: null,
-        isSearchbarActive: false,
       };
     case SEARCH_SUCCESS:
+      if (payload) {
+        const { isNewEntity, query, queryType, data } = payload;
+        console.log(isNewEntity);
+
+        const newState = { ...state };
+
+        if (isNewEntity) {
+          // @ts-ignore
+          newState.data.push(data);
+          newState.queries.push({
+            index: newState.data.length - 1,
+            queryType,
+            query,
+          });
+        }
+        newState.results = data;
+
+        return {
+          ...newState,
+        };
+      }
+
       return {
         ...state,
-        data: [...payload],
       };
     case SEARCH_FAILURE:
       return {
@@ -37,6 +69,7 @@ const searchResults = (state = INITIAL_STATE, { type, payload, err }) => {
       return {
         ...state,
         isSearchbarActive: payload,
+        results: payload ? state.results : [],
       };
     default:
       return state;

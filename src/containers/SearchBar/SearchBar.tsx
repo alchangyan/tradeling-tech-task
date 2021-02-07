@@ -4,12 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Input from '../../components/Input';
 import Select from '../../components/Select';
-import type { TStore } from '../../redux/store';
+import type { TStore } from '../../redux/types';
 import {
   setIsSearchbarActive,
   searchForUsers,
   searchForRepositories,
-  searchForIssues,
 } from '../../redux/actions/search';
 
 import './SearchBar.scss';
@@ -17,7 +16,7 @@ import './SearchBar.scss';
 interface TSearchBarProps {}
 
 const defaultProps = {};
-const options = ['User', 'Repository', 'Issue'];
+const options = ['User', 'Repository'];
 
 const SearchBar: React.FC<TSearchBarProps> = props => {
   const [inputValue, setInputValue] = React.useState('');
@@ -36,9 +35,6 @@ const SearchBar: React.FC<TSearchBarProps> = props => {
             case 'Repository':
               dispatch(searchForRepositories(query));
               break;
-            case 'Issue':
-              dispatch(searchForIssues(query));
-              break;
             default:
               break;
           }
@@ -52,7 +48,7 @@ const SearchBar: React.FC<TSearchBarProps> = props => {
   }, [inputValue, selectValue, handleInputChange]);
 
   React.useEffect(() => {
-    const isSearchbarActiveNew = !inputValue.length;
+    const isSearchbarActiveNew = !!inputValue.length;
     if (isSearchbarActiveNew !== isSearchbarActive) {
       dispatch(setIsSearchbarActive(isSearchbarActiveNew));
     }

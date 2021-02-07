@@ -1,5 +1,17 @@
-export const usersParser = (users: any) => {
-  console.log(users);
-  const results = {};
-  return results;
+import { TUser } from '../types';
+
+export const usersParser = (users: any[]) => {
+  const parsedUsers = users.map(
+    (user: any): TUser => {
+      return {
+        id: user.id,
+        type: 'user',
+        avatar: user.avatar_url,
+        name: user.login,
+        href: user.html_url,
+      };
+    },
+  );
+
+  return parsedUsers;
 };
