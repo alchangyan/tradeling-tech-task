@@ -15,10 +15,7 @@ const INITIAL_STATE = {
 type TSearch = typeof INITIAL_STATE;
 
 // @ts-ignore
-const searchResults = (
-  state = INITIAL_STATE,
-  { type, payload, err }: Action,
-) => {
+const searchResults = (state = INITIAL_STATE, { type, payload, err }) => {
   switch (type) {
     case SEARCH:
       return {
