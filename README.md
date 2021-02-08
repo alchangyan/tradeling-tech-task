@@ -35,3 +35,10 @@ added storybook
 configured storybook for showing testing results
 added lint-staged and husky in combination with prettier
 I've used `App` component as a generic wrapper instead of creating separate layout component just because I have only two simlar pages in general.
+
+
+<details open>
+<summary>Want to ruin the surprise?</summary>
+<br>
+Well, you asked for it!
+</details>
