@@ -62,9 +62,6 @@ yarn build-storybook
 # run application
 npm start
 
-#run tests
-npm test
-
 # build application
 npm run build
 
