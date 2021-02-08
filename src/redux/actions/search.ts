@@ -3,6 +3,7 @@ import {
   SEARCH,
   SEARCH_FAILURE,
   SEARCH_SUCCESS,
+  CLEAR_SEARCH_RESULTS,
 } from '../actionTypes';
 import { fetchSearchResults } from '../thunk';
 import type { TSearchPayload, TSearchAction } from '../types';
@@ -32,4 +33,8 @@ export const setSearchSuccess = (payload: TSearchPayload): TSearchAction => {
 
 export const setSearchFailure = (err: Error): TSearchAction => {
   return { type: SEARCH_FAILURE, err };
+};
+
+export const clearResults = () => {
+  return { type: CLEAR_SEARCH_RESULTS };
 };

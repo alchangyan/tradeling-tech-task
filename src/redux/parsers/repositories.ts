@@ -11,9 +11,13 @@ export const repositoriesParser = (repositories: any[]) => {
         href: repository.html_url,
         language: repository.language,
         description: repository.description,
-        lastUpdate: repository.updated_at,
+        lastUpdate: new Date(repository.updated_at),
         stars: repository.stargazers_count,
-        owner: repository.owner.login,
+        owner: {
+          name: repository.owner.login,
+          avatar: repository.owner.avatar_url,
+          href: repository.owner.html_url,
+        },
       };
     },
   );

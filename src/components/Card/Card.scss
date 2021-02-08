@@ -1,9 +1,11 @@
 @import '../../styles/mixins/common.scss';
 
 .card {
-  height: 120px;
-  box-sizing: border-box;
+  background-color: aliceblue;
+  height: $card-height;
   border: 1px solid $secondary-color;
   border-radius: $border-radius;
-  padding: 10px;
+  padding: $card-padding;
+  overflow: hidden;
+  white-space: nowrap;
 }

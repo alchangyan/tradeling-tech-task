@@ -9,6 +9,7 @@ import {
   setIsSearchbarActive,
   searchForUsers,
   searchForRepositories,
+  clearResults,
 } from '../../redux/actions/search';
 
 import './SearchBar.scss';
@@ -27,7 +28,7 @@ const SearchBar: React.FC<TSearchBarProps> = props => {
   const handleInputChange = React.useMemo(
     () =>
       debounce((query, type) => {
-        if (query.length > 3) {
+        if (query.length > 2) {
           switch (type) {
             case 'User':
               dispatch(searchForUsers(query));
@@ -38,6 +39,8 @@ const SearchBar: React.FC<TSearchBarProps> = props => {
             default:
               break;
           }
+        } else {
+          dispatch(clearResults());
         }
       }, 250),
     [dispatch],

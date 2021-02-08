@@ -2,6 +2,11 @@ $primary-color: #565656;
 $secondary-color: #dcdcdc;
 $input-height: 50px;
 $border-radius: 2px;
+$link-hover-color: chocolate;
+
+// card
+$card-height: 100px;
+$card-padding: 10px;
 
 @mixin input-styles {
   outline: none;
@@ -12,4 +17,12 @@ $border-radius: 2px;
   color: $primary-color;
   box-sizing: border-box;
   height: $input-height;
+}
+
+@mixin anchor {
+  color: black;
+
+  &:hover {
+    color: $link-hover-color;
+  }
 }

@@ -1,13 +1,8 @@
 import * as React from 'react';
 
-import logger from '../../helpers/logger';
 import './Grid.scss';
 
 interface TGridProps {
-  /**
-   * amount of columns
-   */
-  colCount?: number;
   /**
    * gap between columns
    */
@@ -23,38 +18,28 @@ interface TGridProps {
   /**
    * grid children
    */
-  children?: React.ReactNode;
+  children?: React.ReactNode | React.ReactNode[];
 }
 
 const defaultProps = {
-  colCount: 1,
   colGap: 0,
   rowGap: 0,
   pattern: undefined,
 };
 
-const Grid: React.FC<TGridProps> = ({
-  colCount,
+const Grid = ({
   colGap,
   rowGap,
   pattern,
   children,
-}) => {
+}: TGridProps): React.ReactElement<TGridProps> => {
   const gridStyles = React.useMemo(() => {
-    if ((colCount || defaultProps.colCount) < 0) {
-      logger('Amount of column should be above positive number', 'error');
-      return defaultProps;
-    }
-
-    const gridTemplateColumns =
-      pattern || Array(colCount).fill('auto').join(' ');
-
     return {
-      gridTemplateColumns,
-      gridColumnGap: colGap || defaultProps.colGap,
-      gridRowGap: rowGap || defaultProps.rowGap,
+      gridTemplateColumns: pattern,
+      gridColumnGap: colGap,
+      gridRowGap: rowGap,
     };
-  }, [colCount, colGap, rowGap, pattern]);
+  }, [colGap, rowGap, pattern]);
 
   return (
     <div className="grid" style={gridStyles}>

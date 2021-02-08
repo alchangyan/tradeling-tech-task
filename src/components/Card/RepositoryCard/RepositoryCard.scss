@@ -1,2 +1,51 @@
+@import '../../../styles/mixins/common.scss';
+
 .repository-card {
+  position: relative;
+
+  & * {
+    font-size: 12px;
+    margin-bottom: 2px;
+    overflow: hidden;
+  }
+
+  &__name {
+    margin: 0 0 2px;
+
+    & a {
+      font-size: 16px;
+      @include anchor();
+    }
+  }
+
+  &__description {
+    color: gray;
+    white-space: normal;
+    height: 16px;
+    overflow: hidden;
+  }
+
+  &__star {
+    color: gold;
+  }
+
+  &__last-update {
+    margin-bottom: 10px;
+  }
+
+  &__owner {
+    display: flex;
+    align-items: center;
+
+    & > img {
+      min-width: 16px;
+      width: 16px;
+      height: 16px;
+      margin-right: 6px;
+    }
+
+    & > a {
+      @include anchor();
+    }
+  }
 }

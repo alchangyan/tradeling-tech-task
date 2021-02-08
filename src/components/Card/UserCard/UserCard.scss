@@ -1,2 +1,33 @@
+@import '../../../styles/mixins/common.scss';
+
+$avatar-gap: 14px;
+
 .user-card {
+  display: flex;
+
+  &__avatar {
+    height: $card-height;
+    width: $card-height;
+    margin-right: $avatar-gap;
+    border-radius: $border-radius;
+  }
+
+  &__content {
+    width: calc(100% - #{$card-height + $avatar-gap});
+  }
+
+  &__profile-name {
+    margin: 6px 0;
+    white-space: nowrap;
+    overflow: hidden;
+
+    & > a {
+      @include anchor();
+    }
+  }
+
+  &__github-id {
+    color: gray;
+    font-size: 12px;
+  }
 }

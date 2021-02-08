@@ -3,6 +3,7 @@ import {
   SEARCH_SUCCESS,
   SEARCH_FAILURE,
   IS_SEARCHBAR_ACTIVE,
+  CLEAR_SEARCH_RESULTS,
 } from '../actionTypes';
 import type { TSearchAction, TSearch } from '../types';
 
@@ -64,6 +65,11 @@ const searchResults = (
       return {
         ...state,
         err,
+      };
+    case CLEAR_SEARCH_RESULTS:
+      return {
+        ...state,
+        results: [],
       };
     case IS_SEARCHBAR_ACTIVE:
       return {

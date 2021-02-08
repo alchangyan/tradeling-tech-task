@@ -5,6 +5,7 @@ import {
   IS_SEARCHBAR_ACTIVE,
   SET_LOADING,
   UNSET_LOADING,
+  CLEAR_SEARCH_RESULTS,
 } from './actionTypes';
 
 export type TQueryType = 'users' | 'repositories';
@@ -19,6 +20,12 @@ export interface TUser {
   href: string;
 }
 
+export interface TRepositoryOwner {
+  name: string;
+  avatar: string;
+  href: string;
+}
+
 export interface TRepository {
   id: number;
   type: 'repository';
@@ -26,9 +33,9 @@ export interface TRepository {
   href: string;
   language: string;
   description: string | null;
-  lastUpdate: string;
+  lastUpdate: Date;
   stars: number;
-  owner: string;
+  owner: TRepositoryOwner;
 }
 
 export interface TSearchPayload {
@@ -45,7 +52,8 @@ export type TActionType =
   | typeof SEARCH_FAILURE
   | typeof IS_SEARCHBAR_ACTIVE
   | typeof SET_LOADING
-  | typeof UNSET_LOADING;
+  | typeof UNSET_LOADING
+  | typeof CLEAR_SEARCH_RESULTS;
 
 export interface TSearchAction {
   type: TActionType | 'persist/REHYDRATE';

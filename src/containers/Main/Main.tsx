@@ -28,7 +28,7 @@ const Main: React.FC<TMainProps> = props => {
         <Header />
         <SearchBar />
       </div>
-      <Grid colCount={3} colGap={20} rowGap={20}>
+      <Grid pattern="33.33% 33.33% 33.33%" colGap={20} rowGap={20}>
         {results.map((item: TRepository | TUser) => (
           <Card key={item.id} data={item} />
         ))}

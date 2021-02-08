@@ -18,10 +18,14 @@ const repositoryData: TRepository = {
   name: 'tradeling-tech-task',
   href: 'https://github.com/alchangyan/tradeling-tech-task',
   language: 'TypeScript',
-  description: null,
-  lastUpdate: '2021-02-07T14:36:53Z',
+  description: 'Description',
+  lastUpdate: new Date(),
   stars: 1,
-  owner: 'alchangyan',
+  owner: {
+    name: 'alchangyan',
+    avatar: 'https://avatars.githubusercontent.com/u/22478974?v=4',
+    href: 'https://github.com/alchangyan',
+  },
 };
 
 export default {

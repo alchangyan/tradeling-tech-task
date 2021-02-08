@@ -10,7 +10,7 @@ export default {
   component: Grid,
   parameters: {
     jest: ['Grid'],
-  }
+  },
 } as Meta;
 
 const Template: Story<TGridProps> = args => (
@@ -26,7 +26,7 @@ Default.args = {};
 
 export const Custom = Template.bind({});
 Custom.args = {
-  colCount: 2,
+  pattern: '10% 40% 40% 10%',
   colGap: 10,
   rowGap: 10,
 };
