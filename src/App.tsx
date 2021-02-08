@@ -1,5 +1,10 @@
 import * as React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import Main from './containers/Main';
@@ -19,9 +24,10 @@ function App() {
           <Route exact path="/">
             <Main />
           </Route>
-          <Route path="*">
+          <Route path="/page-not-found">
             <PageNotFound />
           </Route>
+          <Redirect to="/page-not-found" />
         </Switch>
       </Router>
       {isLoading && <Loader />}
