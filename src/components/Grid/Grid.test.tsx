@@ -35,14 +35,14 @@ describe('Grid', () => {
   });
 
   it('renders childs', () => {
-    props = { pattern: 'auto auto auto' };
+    props = { pattern: { lg: 'auto auto auto' } };
     getComponent();
     expect(comp.style.gridTemplateColumns).toEqual('auto auto auto');
   });
 
   it('ignores `colCount` property', () => {
     const expectedResult = '1fr 2fr 1fr';
-    props = { pattern: expectedResult };
+    props = { pattern: { lg: expectedResult } };
     getComponent();
     expect(comp.style.gridTemplateColumns).toEqual(expectedResult);
   });

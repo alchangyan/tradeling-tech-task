@@ -13,6 +13,7 @@ import './Main.scss';
 interface TMainProps {}
 
 const Main: React.FC<TMainProps> = (): React.ReactElement<TMainProps> => {
+  const gridPattern = { lg: 'auto auto auto', sm: 'auto auto' };
   const { isSearchbarActive, results } = useSelector(
     (state: TStore) => state.search,
   );
@@ -28,7 +29,7 @@ const Main: React.FC<TMainProps> = (): React.ReactElement<TMainProps> => {
         <Header />
         <SearchBar />
       </div>
-      <Grid pattern="33.33% 33.34% 33.33%" colGap={20} rowGap={20}>
+      <Grid pattern={gridPattern} colGap={20} rowGap={20}>
         {results.map((item: TRepository | TUser) => (
           <Card key={item.id} data={item} />
         ))}

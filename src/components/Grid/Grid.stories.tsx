@@ -26,7 +26,7 @@ Default.args = {};
 
 export const Custom = Template.bind({});
 Custom.args = {
-  pattern: '10% 40% 40% 10%',
+  pattern: { lg: '10% 40% 40% 10%', sm: '50% 50%' },
   colGap: 10,
   rowGap: 10,
 };
