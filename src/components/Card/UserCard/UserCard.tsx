@@ -6,7 +6,7 @@ import './UserCard.scss';
 
 const defaultProps = {};
 
-const UserCard = ({
+const UserCard: React.FC<TUser> = ({
   id,
   avatar,
   name,
@@ -22,7 +22,7 @@ const UserCard = ({
           </a>
         </h3>
         <div className="user-card__github-id">
-          <b>GitHub ID:</b> {id}
+          <b>GitHub ID:</b> <span>{id}</span>
         </div>
       </div>
     </div>

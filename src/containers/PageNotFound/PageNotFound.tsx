@@ -4,8 +4,11 @@ import Header from '../../components/Header';
 
 import './PageNotFound.scss';
 
-const PageNotFound: React.FC<{}> = () => {
+interface TPageNotFoundProps {}
+
+const PageNotFound: React.FC<TPageNotFoundProps> = (): React.ReactElement<TPageNotFoundProps> => {
   const history = useHistory();
+
   const handleRedirect = React.useCallback(() => history && history.push('/'), [
     history,
   ]);
@@ -32,4 +35,5 @@ const PageNotFound: React.FC<{}> = () => {
   );
 };
 
+export type { TPageNotFoundProps };
 export default PageNotFound;

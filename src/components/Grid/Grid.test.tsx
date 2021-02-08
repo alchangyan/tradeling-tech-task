@@ -35,7 +35,7 @@ describe('Grid', () => {
   });
 
   it('renders childs', () => {
-    props = { colCount: 3 };
+    props = { pattern: 'auto auto auto' };
     getComponent();
     expect(comp.style.gridTemplateColumns).toEqual('auto auto auto');
   });

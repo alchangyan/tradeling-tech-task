@@ -4,15 +4,15 @@
   position: relative;
 
   & > select {
-    cursor: pointer;
     @include input-styles();
-    width: 100%;
 
+    cursor: pointer;
+    width: 100%;
     padding-right: 30px;
 
-    // hiding default caret
     -webkit-appearance: none;
     -moz-appearance: none;
+
     &::-ms-expand {
       display: none;
     }

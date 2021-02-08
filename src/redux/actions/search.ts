@@ -31,7 +31,7 @@ export const setSearchSuccess = (payload: TSearchPayload): TSearchAction => {
   return { type: SEARCH_SUCCESS, payload };
 };
 
-export const setSearchFailure = (err: Error): TSearchAction => {
+export const setSearchFailure = (err: string): TSearchAction => {
   return { type: SEARCH_FAILURE, err };
 };
 

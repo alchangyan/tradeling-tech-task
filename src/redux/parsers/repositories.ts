@@ -1,9 +1,15 @@
-import { TRepository } from '../types';
+import { TRepository, TRepositoryApiSchema } from '../types';
 
-export const repositoriesParser = (repositories: any[]) => {
-  console.log(repositories);
+export const repositoriesParser = (repositories: TRepositoryApiSchema[]) => {
   const parsedrepositories = repositories.map(
     (repository: any): TRepository => {
+      const lastUpdateDateObj = new Date(repository.updated_at);
+      const lastUpdate = lastUpdateDateObj
+        ? `${Number(lastUpdateDateObj.getDate()) + 1}/${
+            Number(lastUpdateDateObj.getMonth()) + 1
+          }/${lastUpdateDateObj.getFullYear()}`
+        : '-';
+
       return {
         id: repository.id,
         type: 'repository',
@@ -11,7 +17,7 @@ export const repositoriesParser = (repositories: any[]) => {
         href: repository.html_url,
         language: repository.language,
         description: repository.description,
-        lastUpdate: new Date(repository.updated_at),
+        lastUpdate,
         stars: repository.stargazers_count,
         owner: {
           name: repository.owner.login,

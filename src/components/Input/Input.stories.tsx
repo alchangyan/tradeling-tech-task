@@ -28,3 +28,9 @@ export const WithDefaultValue = Template.bind({});
 WithDefaultValue.args = {
   defaultValue: 'Default Value',
 };
+
+export const WithErrorMessage = Template.bind({});
+
+WithErrorMessage.args = {
+  errorMessage: 'Error message.',
+};

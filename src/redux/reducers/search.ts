@@ -25,7 +25,6 @@ const searchResults = (
 
       return {
         ...persistedState,
-        query: '',
         err: null,
         results: [],
         isSearchbarActive: false,
@@ -38,11 +37,11 @@ const searchResults = (
     case SEARCH_SUCCESS:
       if (payload) {
         const { isNewEntity, query, queryType, data } = payload;
-        console.log(isNewEntity);
 
         const newState = { ...state };
 
         if (isNewEntity) {
+          // TODO: fix type error
           // @ts-ignore
           newState.data.push(data);
           newState.queries.push({
@@ -70,12 +69,15 @@ const searchResults = (
       return {
         ...state,
         results: [],
+        err: null,
       };
     case IS_SEARCHBAR_ACTIVE:
+      const isActive = payload;
+
       return {
         ...state,
-        isSearchbarActive: payload,
-        results: payload ? state.results : [],
+        isSearchbarActive: isActive,
+        results: isActive ? state.results : [],
       };
     default:
       return state;

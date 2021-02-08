@@ -35,7 +35,7 @@ const defaultProps: TSelectProps = {
   onChange: () => {},
 };
 
-const Select = ({
+const Select: React.FC<TSelectProps> = ({
   options,
   defaultValue,
   tabIndex,
@@ -50,6 +50,7 @@ const Select = ({
     },
     [onChange],
   );
+
   return (
     <div className="select" style={{ width }}>
       <select

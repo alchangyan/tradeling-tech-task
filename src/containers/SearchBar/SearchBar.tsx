@@ -19,11 +19,14 @@ interface TSearchBarProps {}
 const defaultProps = {};
 const options = ['User', 'Repository'];
 
-const SearchBar: React.FC<TSearchBarProps> = props => {
+const SearchBar: React.FC<TSearchBarProps> = (): React.ReactElement<TSearchBarProps> => {
   const [inputValue, setInputValue] = React.useState('');
   const [selectValue, setSelectValue] = React.useState(options[0]);
+
   const dispatch = useDispatch();
-  const { isSearchbarActive } = useSelector((state: TStore) => state.search);
+  const { isSearchbarActive, err } = useSelector(
+    (state: TStore) => state.search,
+  );
 
   const handleInputChange = React.useMemo(
     () =>
@@ -52,6 +55,7 @@ const SearchBar: React.FC<TSearchBarProps> = props => {
 
   React.useEffect(() => {
     const isSearchbarActiveNew = !!inputValue.length;
+
     if (isSearchbarActiveNew !== isSearchbarActive) {
       dispatch(setIsSearchbarActive(isSearchbarActiveNew));
     }
@@ -63,6 +67,7 @@ const SearchBar: React.FC<TSearchBarProps> = props => {
         width={360}
         placeholder="Start typing to search .."
         onChange={setInputValue}
+        errorMessage={err}
       />
       <Select width={130} options={options} onChange={setSelectValue} />
     </div>

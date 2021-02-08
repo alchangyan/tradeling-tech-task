@@ -33,6 +33,7 @@ const getComponent = (): TGetComponentResult => {
       <PageNotFound />
     </MemoryRouter>,
   );
+
   ({ container } = wrapper);
   comp = container.firstChild as HTMLElement;
 

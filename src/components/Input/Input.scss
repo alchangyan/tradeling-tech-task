@@ -3,4 +3,26 @@
 .input {
   width: 100%;
   @include input-styles();
+
+  &__error-message {
+    color: red;
+    position: absolute;
+    top: 20px;
+    z-index: -1;
+    width: 100%;
+    font-size: 12px;
+    transition: 0.3s;
+    opacity: 0;
+    padding-left: 16px;
+
+    &_active {
+      top: 50px;
+      opacity: 1;
+    }
+  }
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
 }

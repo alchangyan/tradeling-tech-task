@@ -16,6 +16,8 @@ export const githubApi = async (
   query: string,
 ) => {
   try {
+    // Notice: uncomment botom line to initiate an error by GitHub API
+    // throw new Error('OMG');
     const res: OctokitResponse<any, number> = await request(
       `${methods[method]} ${endpoint}`,
       {
@@ -25,6 +27,6 @@ export const githubApi = async (
 
     return res.data;
   } catch (err) {
-    return {};
+    throw new Error(err);
   }
 };

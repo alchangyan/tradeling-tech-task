@@ -5,8 +5,7 @@
       "path": "/search",
       "get": {
         "repositories": "/repositories",
-        "users": "/users",
-        "issues": "/issues"
+        "users": "/users"
       }
     }
   }

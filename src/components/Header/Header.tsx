@@ -5,7 +5,7 @@ interface THeaderProps {}
 
 const defaultProps = {};
 
-const Header: React.FC<THeaderProps> = () => {
+const Header: React.FC<THeaderProps> = (): React.ReactElement<THeaderProps> => {
   return (
     <div className="header">
       <img

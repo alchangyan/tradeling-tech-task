@@ -27,7 +27,7 @@ const defaultProps = {
   pattern: undefined,
 };
 
-const Grid = ({
+const Grid: React.FC<TGridProps> = ({
   colGap,
   rowGap,
   pattern,

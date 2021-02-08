@@ -6,7 +6,7 @@ import './RepositoryCard.scss';
 
 const defaultProps = {};
 
-const RepositoryCard = ({
+const RepositoryCard: React.FC<Partial<TRepository>> = ({
   name,
   href,
   language,
@@ -15,12 +15,6 @@ const RepositoryCard = ({
   stars,
   owner,
 }: Partial<TRepository>): React.ReactElement<Partial<TRepository>> => {
-  const date = lastUpdate
-    ? `${Number(lastUpdate.getDate()) + 1}/${
-        Number(lastUpdate.getMonth()) + 1
-      }/${lastUpdate.getFullYear()}`
-    : '-';
-
   return (
     <div className="repository-card">
       <h4 className="repository-card__name">
@@ -40,7 +34,7 @@ const RepositoryCard = ({
         <span className="repository-card__star">★</span> {`(${stars})`}
       </div>
       <div className="repository-card__last-update">
-        <b>last update:</b> <span>{date}</span>
+        <b>last update:</b> <span>{lastUpdate}</span>
       </div>
       <div className="repository-card__owner">
         <img src={owner?.avatar} alt="avatar" />

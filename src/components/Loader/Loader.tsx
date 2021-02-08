@@ -5,7 +5,7 @@ interface TLoaderProps {}
 
 const defaultProps = {};
 
-const Loader: React.FC<TLoaderProps> = () => {
+const Loader: React.FC<TLoaderProps> = (): React.ReactElement<TLoaderProps> => {
   React.useEffect(() => {
     document.body.style.overflow = 'hidden';
 

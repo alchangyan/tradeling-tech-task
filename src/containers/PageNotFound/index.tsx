@@ -1,4 +1,5 @@
 import * as React from 'react';
-import PageNotFound from './PageNotFound';
+import PageNotFound, { TPageNotFoundProps } from './PageNotFound';
 
+export type { TPageNotFoundProps };
 export default React.memo(PageNotFound);

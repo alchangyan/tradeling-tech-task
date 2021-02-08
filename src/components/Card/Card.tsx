@@ -12,7 +12,9 @@ interface TCardProps {
 
 const defaultProps = {};
 
-const Card = ({ data }: TCardProps): React.ReactElement<TCardProps> => {
+const Card: React.FC<TCardProps> = ({
+  data,
+}: TCardProps): React.ReactElement<TCardProps> => {
   return (
     <div className="card">
       {data.type === 'user' && <UserCard {...data} />}

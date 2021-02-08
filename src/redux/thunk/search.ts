@@ -2,6 +2,7 @@ import { Dispatch } from 'redux';
 
 import { githubApi } from '../../services/github-api';
 import config from '../../config/default.json';
+import logger from '../../helpers/logger';
 import { repositoriesParser, usersParser } from '../parsers';
 import type {
   TSearchPayload,
@@ -9,6 +10,9 @@ import type {
   TQueryType,
   TStore,
   TUser,
+  TApiResponse,
+  TRepositoryApiSchema,
+  TUserApiSchema,
 } from '../types';
 import { setLoading } from '../actions/loader';
 import {
@@ -37,18 +41,22 @@ export const fetchSearchResults = (type: TQueryType, query: string) => {
       if (!isNewEntity && existingQuery) {
         data = stateData[existingQuery.index];
       } else {
-        const results = await githubApi(
+        const results: TApiResponse = await githubApi(
           'get',
           `${path}${get[type]}`,
           formattedQuery,
         );
 
+        let incomingResults;
+
         switch (type) {
           case 'users':
-            data = usersParser(results.items);
+            incomingResults = results.items as TUserApiSchema[];
+            data = usersParser(incomingResults);
             break;
           case 'repositories':
-            data = repositoriesParser(results.items);
+            incomingResults = results.items as TRepositoryApiSchema[];
+            data = repositoriesParser(incomingResults);
             break;
           default:
             break;
@@ -65,7 +73,10 @@ export const fetchSearchResults = (type: TQueryType, query: string) => {
       dispatch(setSearchSuccess(payload));
       dispatch(setLoading(false));
     } catch (err) {
-      dispatch(setSearchFailure(err));
+      const errorMsg = `Received an error while getting ${type} from GitHub API. Please refresh the page and try again.`;
+
+      logger(errorMsg, 'error');
+      dispatch(setSearchFailure(errorMsg));
       dispatch(setLoading(false));
     }
   };

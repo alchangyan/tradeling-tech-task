@@ -1,6 +1,6 @@
-import { TUser } from '../types';
+import { TUser, TUserApiSchema } from '../types';
 
-export const usersParser = (users: any[]) => {
+export const usersParser = (users: TUserApiSchema[]) => {
   const parsedUsers = users.map(
     (user: any): TUser => {
       return {

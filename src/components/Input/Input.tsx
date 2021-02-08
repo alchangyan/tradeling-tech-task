@@ -1,4 +1,6 @@
 import * as React from 'react';
+import classnames from 'classnames';
+
 import './Input.scss';
 
 interface TInputProps {
@@ -22,6 +24,10 @@ interface TInputProps {
    * onchange event callback
    */
   onChange?: (v: string) => void;
+  /**
+   * error message
+   */
+  errorMessage?: string | null;
 }
 
 const defaultProps: TInputProps = {
@@ -29,14 +35,16 @@ const defaultProps: TInputProps = {
   placeholder: '',
   tabIndex: 0,
   onChange: () => {},
+  errorMessage: null,
 };
 
-const Input = ({
+const Input: React.FC<TInputProps> = ({
   defaultValue,
   placeholder,
   tabIndex,
   onChange,
   width,
+  errorMessage,
 }: TInputProps): React.ReactElement<TInputProps> => {
   const handleChange = React.useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -47,14 +55,23 @@ const Input = ({
   );
 
   return (
-    <input
-      className="input"
-      defaultValue={defaultValue}
-      placeholder={placeholder}
-      tabIndex={tabIndex}
-      onChange={handleChange}
-      style={{ width }}
-    />
+    <div className="input-wrapper" style={{ width }}>
+      <input
+        className="input"
+        defaultValue={defaultValue}
+        placeholder={placeholder}
+        tabIndex={tabIndex}
+        onChange={handleChange}
+      />
+      <div
+        className={classnames({
+          'input__error-message': true,
+          'input__error-message_active': !!errorMessage,
+        })}
+      >
+        {errorMessage}
+      </div>
+    </div>
   );
 };
 
