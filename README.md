@@ -54,6 +54,7 @@ yarn storybook
 yarn build-storybook
 ```
 
+</details>
 <details>
 <summary>with <b>npm</b></summary>
 
@@ -135,13 +136,15 @@ So I did :)
 At the end I ran over my code to note some further TODO's.
 
 ## Conclusion
-I didn't write unit-tests just because of time I didn't have for that and of course I will add them asap.
+I didn't write unit-tests just because of time I didn't have and of course I'll add them asap.
 
 Also I left some comments for strange TS cases and for some further improvements to finilize them later.
 
 Also I want to apologize for being late with this. I was super busy whole week, so I was able to do this only on weekend.
 
-I hope you'll show me all my mistakes and possible improvememts to make myself better  :)
+I did all this in a hurry, so mistakes are VERY possible :)
+
+I hope you'll show me all my mistakes and possible improvements to make myself better :)
 
 Thanks in advance.
 
