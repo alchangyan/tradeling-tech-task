@@ -14,7 +14,7 @@ Very simple GitHub searcher to search users and repositories.
 - No styling frameworks allowed;
 - Use React Router;
 - The results should be fetched from the GitHub API;
-- README.md file explaining high level solution and any madeed decisions and the reasons behind them.
+- README.md file explaining high level solution and any maded decisions and the reasons behind them.
 
 > Product behavior
 - When the user doesn't have any input or clears the input, the input fields should be shown in the middle of the page;
