@@ -116,7 +116,7 @@ I've started with configuration of my working environment to get what CRA can't 
 
 To finilize configuration of my working environment I've developed my first `Grid` component to write tests and to have an ability to choose as the next component any I'll wish.
 
-After getting initial versions of my components I've started configuration of `redux` to start development of my containers. In the scope of my task, testing `redux` without `redux-persist` and `redux-thunk` was not the best idea. I didn't know `redux-persist` and I never worked with GitHub API, so I spent some time to get information about their basik usage.
+After getting initial versions of my components I've started configuration of `redux` to start development of my containers. In the scope of my task, testing `redux` without `redux-persist` and `redux-thunk` was not the best idea. I didn't know `redux-persist` and I never worked with GitHub API, so I spent some time to get information about their basic usage.
 
 I've created simple button to make a call throughout `redux`, `redux-thunk` and `redux-persist` to check is there everything allright.
 
